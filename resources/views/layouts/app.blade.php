@@ -15,6 +15,7 @@
 <body>
 @include('includes.header')
 <main class="container">
+    @include('includes.messages')
     @if(Request::is('/'))
         @include('includes.hero')
         @include('includes.news')
