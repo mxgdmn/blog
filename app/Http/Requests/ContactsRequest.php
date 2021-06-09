@@ -24,7 +24,8 @@ class ContactsRequest extends FormRequest
     public function rules()
     {
         return [
-            'f-name' => 'required',
+            'firstname' => 'required',
+            'lastname' => 'required',
             'email' => 'required|email',
             'message' => 'required|min:11|max:600'
         ];
@@ -32,7 +33,8 @@ class ContactsRequest extends FormRequest
     public function messages()
     {
         return [
-            'f-name.required' => 'Введите ваше имя!',
+            'firstname.required' => 'Введите ваше имя!',
+            'lastname.required' => 'Введите вашу фамилию!',
             'email.required' => 'Введите адрес электронной почты!',
             'message.required' => 'Добавьте сообщение!'
         ];

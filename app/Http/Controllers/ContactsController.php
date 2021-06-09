@@ -4,10 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\ContactsRequest;
+use App\Models\Contacts;
 
 class ContactsController extends Controller
 {
     public function submit(ContactsRequest $req) {
-        dd($req->input("f-name"));
+        $contact = new Contacts();
+        $contact->firstname = $req->input('firstname');
+        $contact->lastname = $req->input('lastname');
+        $contact->email = $req->input('email');
+        $contact->message = $req->input('message');
+
+        $contact->save();
+        return redirect()->route('home')->with('success', 'Сообщение было добавлено!');
     }
 }

@@ -3,28 +3,20 @@
 @section('title')Мои контакты@endsection
 @section('content')
     <h1>Контакты</h1>
-@if($errors->any())
-    <div class="alert alert-danger" role="alert">
-        <ul>
-        @foreach($errors->all() as $error)
-            <li>{{ $error }}</li>
-        @endforeach
-        </ul>
-    </div>
-@endif
+
     <form action="{{ route('contact-form') }}" method="post" novalidate>
         @csrf
         <div class="row g-3">
             <div class="col-sm-6">
                 <label for="firstName" class="form-label">First name</label>
-                <input type="text" class="form-control" id="firstName" name="f-name" placeholder="Bob" value="" required="">
+                <input type="text" class="form-control" id="firstName" name="firstname" placeholder="Bob" value="" required="">
                 <div class="invalid-feedback">
                     Valid first name is required.
                 </div>
             </div>
             <div class="col-sm-6">
                 <label for="lastName" class="form-label">Last name</label>
-                <input type="text" class="form-control" id="lastName" name="l-name" placeholder="Jonson" value="" required="">
+                <input type="text" class="form-control" id="lastName" name="lastname" placeholder="Jonson" value="" required="">
                 <div class="invalid-feedback">
                     Valid last name is required.
                 </div>
