@@ -20,7 +20,7 @@
         <nav class="nav d-flex justify-content-between">
             <a class="p-2 link-secondary" href="{{ route('about') }}">About</a>
             <a class="p-2 link-secondary" href="{{ route('contacts') }}">Contacts</a>
-            <a class="p-2 link-secondary" href="#">Technology</a>
+            <a class="p-2 link-secondary" href="{{ route('contact-data') }}">Messages</a>
             <a class="p-2 link-secondary" href="#">Design</a>
         </nav>
     </div>

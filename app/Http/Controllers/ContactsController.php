@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Requests\ContactsRequest;
 use App\Models\Contacts;
 
@@ -17,5 +16,13 @@ class ContactsController extends Controller
 
         $contact->save();
         return redirect()->route('home')->with('success', 'Сообщение было добавлено!');
+    }
+    public function allData() {
+        $messages = new Contacts;
+        return view('allmessages', ['data' => $messages->all()]);
+    }
+    public function userData($id) {
+        $message = new Contacts;
+        return view('userdata', ['data' => $message->find($id)]);
     }
 }
