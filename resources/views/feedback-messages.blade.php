@@ -1,9 +1,14 @@
 @extends('layouts.app')
-@section('title')All Messages @endsection
+
+@section('title')
+Feedback messages
+@endsection
+
 @section('content')
     <article class="blog-post">
-        <h3>Example table</h3>
-        <p>And don't forget about tables in these posts:</p>
+        <h3>Feedback messages</h3>
+        <p>These messages sent from the feedback page:</p>
+
         <table class="table">
             <thead>
             <tr>
@@ -13,22 +18,26 @@
                 <th>Message</th>
             </tr>
             </thead>
+
             <tbody>
-            @foreach($data as $el)
+            @foreach($data as $row)
                 <tr>
-                    <td>{{ $el->firstname }}</td>
-                    <td>{{ $el->lastname }}</td>
-                    <td>{{ $el->email }}</td>
-                    <td><a href="{{ route('user-data', $el->id) }}">read...</a></td>
+                    <td>{{ $row->firstName }}</td>
+                    <td>{{ $row->lastName }}</td>
+                    <td>{{ $row->email }}</td>
+                    <td><a href="{{ route('feedback-message', $row->id) }}">read...</a></td>
                 </tr>
             @endforeach
             </tbody>
+
             <tfoot>
             <tr>
                 <td>Totals</td>
                 <td>{{ $data->count() }}</td>
             </tr>
             </tfoot>
+
         </table>
+
     </article>
 @endsection

@@ -14,15 +14,9 @@ use App\Http\Controllers\ContactsController;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
-Route::get('/about', function () {
-    return view('about');
-})->name('about');
-Route::get('/contacts', function () {
-    return view('contacts');
-})->name('contacts');
-Route::post('/contacts/submit', [ContactsController::class, 'submit'])->name('contact-form');
-Route::get('/contacts/all', [ContactsController::class, 'allData'])->name('contact-data');
-Route::get('/contacts/all/{id}', [ContactsController::class, 'userData'])->name('user-data');
+Route::get('/', function () { return view('home'); })->name('home');
+Route::get('/about', function () { return view('about'); })->name('about');
+Route::get('/feedback-form', function () { return view('feedback-form'); })->name('feedback-form');
+Route::post('/feedback-send', [ContactsController::class, 'sendFeedback'])->name('feedback-send');
+Route::get('/feedback-messages', [ContactsController::class, 'showFeedbackMessages'])->name('feedback-messages');
+Route::get('/feedback/message/{id}', [ContactsController::class, 'showOneFeedbackMessage'])->name('feedback-message');

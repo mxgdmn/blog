@@ -24,19 +24,20 @@ class ContactsRequest extends FormRequest
     public function rules()
     {
         return [
-            'firstname' => 'required',
-            'lastname' => 'required',
+            'firstName' => 'required|max:100',
+            'lastName' => 'required|max:150',
             'email' => 'required|email',
+            'subject' => 'required|max:255',
             'message' => 'required|min:11|max:600'
         ];
     }
     public function messages()
     {
         return [
-            'firstname.required' => 'Введите ваше имя!',
-            'lastname.required' => 'Введите вашу фамилию!',
-            'email.required' => 'Введите адрес электронной почты!',
-            'message.required' => 'Добавьте сообщение!'
+//            'firstName.required' => 'Введите ваше имя!',
+//            'lastName.required' => 'Введите вашу фамилию!',
+//            'email.required' => 'Введите адрес электронной почты!',
+//            'message.required' => 'Добавьте сообщение!'
         ];
     }
 }

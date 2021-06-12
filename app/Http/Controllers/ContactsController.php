@@ -4,25 +4,30 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactsRequest;
 use App\Models\Contacts;
+use Illuminate\Database\Eloquent\Model;
 
 class ContactsController extends Controller
 {
-    public function submit(ContactsRequest $req) {
-        $contact = new Contacts();
-        $contact->firstname = $req->input('firstname');
-        $contact->lastname = $req->input('lastname');
+    public function sendFeedback(ContactsRequest $req) {
+        $contact = new Contacts;
+        $contact->firstName = $req->input('firstName');
+        $contact->lastName = $req->input('lastName');
         $contact->email = $req->input('email');
+        $contact->subject = $req->input('subject');
         $contact->message = $req->input('message');
 
         $contact->save();
-        return redirect()->route('home')->with('success', 'Сообщение было добавлено!');
+        return redirect()->route('home')->with('success', 'The message was send!');
     }
-    public function allData() {
+
+    public function showFeedbackMessages() {
         $messages = new Contacts;
-        return view('allmessages', ['data' => $messages->all()]);
+        return view('feedback-messages', ['data' => $messages->all()]);
     }
-    public function userData($id) {
+
+    public function showOneFeedbackMessage($id) {
         $message = new Contacts;
-        return view('userdata', ['data' => $message->find($id)]);
+        return view('feedback-message', ['data' => $message->find($id)]);
     }
+
 }

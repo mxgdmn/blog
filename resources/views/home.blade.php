@@ -1,5 +1,9 @@
 @extends('layouts.app')
-@section('title')Главная страница@endsection
+
+@section('title')
+Max Gutin | Personal Home Page
+@endsection
+
 @section('content')
 <h3 class="pb-4 mb-4 fst-italic border-bottom">
     From the Firehose
@@ -127,5 +131,5 @@
 @endsection
 
 @section('aside')
-    @parent<p>Additional text</p>
+    @parent<p>Additional text example</p>
 @endsection
