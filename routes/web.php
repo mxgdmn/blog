@@ -20,3 +20,4 @@ Route::get('/feedback-form', function () { return view('feedback-form'); })->nam
 Route::post('/feedback-send', [ContactsController::class, 'sendFeedback'])->name('feedback-send');
 Route::get('/feedback-messages', [ContactsController::class, 'showFeedbackMessages'])->name('feedback-messages');
 Route::get('/feedback/message/{id}', [ContactsController::class, 'showOneFeedbackMessage'])->name('feedback-message');
+Route::get('/feedback/edit/{id}', [ContactsController::class, 'editFeedback'])->name('feedback-edit');

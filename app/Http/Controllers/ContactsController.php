@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactsRequest;
 use App\Models\Contacts;
-use Illuminate\Database\Eloquent\Model;
 
 class ContactsController extends Controller
 {
@@ -29,5 +28,11 @@ class ContactsController extends Controller
         $message = new Contacts;
         return view('feedback-message', ['data' => $message->find($id)]);
     }
+
+    public function editFeedback($id) {
+        $message = new Contacts;
+        return view('feedback-edit', ['data' => $message->find($id)]);
+    }
+
 
 }
