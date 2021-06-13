@@ -8,7 +8,7 @@
 @section('content')
     <h1>{{ $data->subject }}</h1>
 
-    <form action="" method="post" novalidate>
+    <form action="{{ route('feedback-update', $data->id) }}" method="post" novalidate>
 
         @csrf
 
@@ -54,7 +54,7 @@
             </div>
 
             <div class="col-md-6">
-                <button class="w-100 btn btn-primary btn-lg" type="submit">Send</button>
+                <button class="w-100 btn btn-primary btn-lg" type="submit">Update</button>
             </div>
             <div class="col-md-6">
                 <a href="<?PHP echo $_SERVER['HTTP_REFERER'] ?>">

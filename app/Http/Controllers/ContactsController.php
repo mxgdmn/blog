@@ -7,7 +7,7 @@ use App\Models\Contacts;
 
 class ContactsController extends Controller
 {
-    public function sendFeedback(ContactsRequest $req) {
+    public function sendFeedbackMessage(ContactsRequest $req) {
         $contact = new Contacts;
         $contact->firstName = $req->input('firstName');
         $contact->lastName = $req->input('lastName');
@@ -29,10 +29,21 @@ class ContactsController extends Controller
         return view('feedback-message', ['data' => $message->find($id)]);
     }
 
-    public function editFeedback($id) {
+    public function editFeedbackMessage($id) {
         $message = new Contacts;
         return view('feedback-edit', ['data' => $message->find($id)]);
     }
 
+    public function updateFeedbackMessage($id, ContactsRequest $req) {
+        $contact = Contacts::find($id);
+        $contact->firstName = $req->input('firstName');
+        $contact->lastName = $req->input('lastName');
+        $contact->email = $req->input('email');
+        $contact->subject = $req->input('subject');
+        $contact->message = $req->input('message');
+
+        $contact->save();
+        return redirect()->route('feedback-message', $id)->with('success', 'The message updated!');
+    }
 
 }
