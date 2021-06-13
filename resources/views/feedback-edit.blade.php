@@ -58,7 +58,7 @@
             </div>
             <div class="col-md-6">
                 <a href="<?PHP echo $_SERVER['HTTP_REFERER'] ?>">
-                    <button class="w-100 btn btn-primary btn-lg" type="button">Cancel</button>
+                    <button class="w-100 btn btn-warning btn-lg" type="button">Cancel</button>
                 </a>
             </div>
 

@@ -45,5 +45,9 @@ class ContactsController extends Controller
         $contact->save();
         return redirect()->route('feedback-message', $id)->with('success', 'The message updated!');
     }
+    public function deleteFeedbackMessage($id) {
+        Contacts::find($id)->delete();
+        return redirect()->route('feedback-messages')->with('success', 'The message deleted!');
+    }
 
 }

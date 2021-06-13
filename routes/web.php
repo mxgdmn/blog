@@ -22,3 +22,4 @@ Route::get('/feedback-messages', [ContactsController::class, 'showFeedbackMessag
 Route::get('/feedback/message/{id}', [ContactsController::class, 'showOneFeedbackMessage'])->name('feedback-message');
 Route::get('/feedback/message/{id}/edit', [ContactsController::class, 'editFeedbackMessage'])->name('feedback-edit');
 Route::post('/feedback/message/{id}/update', [ContactsController::class, 'updateFeedbackMessage'])->name('feedback-update');
+Route::get('/feedback/message/{id}/delete', [ContactsController::class, 'deleteFeedbackMessage'])->name('feedback-delete');

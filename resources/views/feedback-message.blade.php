@@ -11,8 +11,18 @@ Message from {{ $data->firstName }} {{ $data->lastName }}
 
         <p>{{ $data->message }}</p>
 
-        <a href="{{ route('feedback-edit', $data->id) }}">
-            <button class="w-50 btn btn-primary btn-lg" type="submit">Edit</button>
-        </a>
+        <div class="row">
+            <div class="col-md-6">
+                <a href="{{ route('feedback-edit', $data->id) }}">
+                    <button class="w-100 btn btn-warning btn-lg" type="submit">Edit</button>
+                </a>
+            </div>
+
+            <div class="col-md-6">
+                <a href="{{ route('feedback-delete', $data->id) }}">
+                    <button class="w-100 btn btn-danger btn-lg" type="submit">Delete</button>
+                </a>
+            </div>
+        </div>
     </article>
 @endsection
